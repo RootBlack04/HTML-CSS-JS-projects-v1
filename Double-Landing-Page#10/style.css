@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+h1 {
+  font-size: 100px;
+  color: aliceblue;
+  backdrop-filter: brightness(0.5);
+  letter-spacing: 4px;
+}
+.btn {
+  background-color: black;
+  color: white;
+  padding: 20px 40px;
+  font-size: 25px;
+  border: 4px solid;
+  cursor: pointer;
+  transition: 1s background-color;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background-color: white;
+  color: black;
+}
+
+.split {
+  width: 50%;
+  height: 100%;
+  top: 0;
+  overflow: hidden;
+}
+
+.split.left {
+  position: absolute;
+  left: 0;
+  background-color: pink;
+  background-image: url("https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1708679040/Croma%20Assets/Communication/Mobiles/Images/300826_0_ujhvyj.png?tr=w-640");
+  background-size: cover;
+}
+
+.split.right {
+  position: absolute;
+  right: 0;
+  background-color: lightblue;
+  background-image: url("https://imagedelivery.net/JAV112JY973Crznn4xb8Sg/a0643a7c-8bfd-4e1c-5f9f-9e060db33900/mobile");
+  background-size: cover;
+}
+
+.active-left .left {
+  width: 75%;
+}
+.active-left .right {
+  width: 25%;
+}
+
+.active-right .right {
+  width: 75%;
+}
+.active-right .left {
+  width: 25%;
+}
+
+.left,
+.right {
+  transition: withd 2s ease-in-out;
+}
