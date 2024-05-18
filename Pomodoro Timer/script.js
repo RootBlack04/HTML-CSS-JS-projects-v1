@@ -3,44 +3,39 @@ const stopEl = document.getElementById("stop");
 const resetEl = document.getElementById("reset");
 const timerEl = document.getElementById("timer");
 
-
 let interval;
-let timeLeft = 70;
+let timeLeft = 1500;
 
-
-function updateTimer(){
-    let minutes = Math.floor(timeLeft/60);
-    let seconds = timeLeft%60;
-    let formattedTime = `${minutes.toString().padStart(2, "0")}  :  ${seconds.toString().padStart(2, "0")}`;
-    timerEl.innerHTML = formattedTime;
+function updateTimer() {
+  let minutes = Math.floor(timeLeft / 60);
+  let seconds = timeLeft % 60;
+  let formattedTime = `${minutes.toString().padStart(2, "0")}  :  ${seconds
+    .toString()
+    .padStart(2, "0")}`;
+  timerEl.innerHTML = formattedTime;
 }
 
-
-
-function startTimer(){
-interval = setInterval(()=> {
-timeLeft--;
-updateTimer();
-if(timeLeft === 0){
-    clearInterval(interval);
-    alert("Time's up!");
-    timeLeft=70;
+function startTimer() {
+  interval = setInterval(() => {
+    timeLeft--;
     updateTimer();
-
+    if (timeLeft === 0) {
+      clearInterval(interval);
+      alert("Time's up!");
+      timeLeft = 1500;
+      updateTimer();
+    }
+  }, 1000);
 }
-},1000)
+function stopTimer() {
+  clearInterval(interval);
 }
-function stopTimer(){
-    clearInterval(interval);
-}
-function resetTimer(){
-    clearInterval(interval);
-    timeLeft =70;
-    updateTimer();
+function resetTimer() {
+  clearInterval(interval);
+  timeLeft = 1500;
+  updateTimer();
 }
 
-
-
-startEl.addEventListener("click" , startTimer)
-stopEl.addEventListener("click" , stopTimer)
-resetEl.addEventListener("click" , resetTimer)
+startEl.addEventListener("click", startTimer);
+stopEl.addEventListener("click", stopTimer);
+resetEl.addEventListener("click", resetTimer);
